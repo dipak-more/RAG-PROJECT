@@ -1,0 +1,45 @@
+streamlit>=1.47.0
+
+# LangChain
+langchain>=0.3.27
+langchain-core>=0.3.72
+langchain-community>=0.3.27
+langchain-text-splitters>=0.3.9
+
+# Mistral AI
+langchain-mistralai>=0.2.11
+mistralai>=1.9.11
+
+# Vector Database
+chromadb>=1.0.15
+
+# Embeddings
+sentence-transformers>=5.0.0
+huggingface-hub>=0.34.4
+
+# Document Loaders
+pypdf>=5.9.0
+python-docx>=1.2.0
+unstructured>=0.18.11
+
+# Environment Variables
+python-dotenv>=1.1.1
+
+# Tokenizer
+tiktoken>=0.9.0
+
+# Numerical Computing
+numpy>=2.3.1
+
+# Data Handling
+pandas>=2.3.1
+
+# HTTP Requests
+requests>=2.32.4
+
+# Progress Bars
+tqdm>=4.67.1
+
+# Optional OCR Support
+pillow>=11.3.0
+pytesseract>=0.3.13
