@@ -1,11 +1,11 @@
 from langchain_community.document_loaders import PyPDFLoader
-from langchain_text_splitters import TokenTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 data = PyPDFLoader("documents/deepl.pdf")
 
 docs = data.load()
 
-splitter =TokenTextSplitter(
+splitter =RecursiveCharacterTextSplitter(
     chunk_size = 1000,
     chunk_overlap = 10, 
 ) 

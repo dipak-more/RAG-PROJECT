@@ -2,12 +2,18 @@ from dotenv import load_dotenv
 from langchain_mistralai import ChatMistralAI
 from langchain_community.document_loaders import TextLoader
 from langchain_core.prompts import ChatPromptTemplate
-
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 load_dotenv()
 
-data = TextLoader("documents/gerr.txt")
+data = TextLoader("documents/deepl.pdf")
 docs = data.load()
 
+splitter = RecursiveCharacterTextSplitter(
+    chunks_size= 1000,
+    chunk_overlap= 200,
+)
+
+chunks = splitter.split_documents(docs)
 template = ChatPromptTemplate.from_messages(
     [("system","you are a ai that summarizes the text"),
      "human","{data}"]
