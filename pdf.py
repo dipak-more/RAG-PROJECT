@@ -1,6 +1,15 @@
 from langchain_community.document_loaders import PyPDFLoader
-data = PyPDFLoader("documents/full_llm.pdf")
+from langchain_text_splitters import TokenTextSplitter
+
+data = PyPDFLoader("documents/deepl.pdf")
 
 docs = data.load()
 
-print(len(docs))
+splitter =TokenTextSplitter(
+    chunk_size = 1000,
+    chunk_overlap = 10, 
+) 
+
+chunks = splitter.split_documents(docs)
+
+print((chunks[0].page_content))
