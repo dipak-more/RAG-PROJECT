@@ -6,7 +6,18 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-data = PyPDFLoader("documents/deepl.pdf")
+import os
+
+pdf_folder = "documents"
+
+pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
+
+if not pdf_files:
+    raise FileNotFoundError("No PDF found in the documents folder.")
+
+pdf_path = os.path.join(pdf_folder, pdf_files[0])
+
+data = PyPDFLoader(pdf_path)
 docs = data.load()
 
 splitter = RecursiveCharacterTextSplitter(
